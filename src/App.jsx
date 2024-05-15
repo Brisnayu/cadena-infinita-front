@@ -1,4 +1,5 @@
 import Button from "./Atoms/Button";
+import Input from "./Atoms/Input";
 import AdminRegistrationForm from "./Componentes/Formularios/AdminRegistrationForm";
 import CompanyRegistrationForm from "./Componentes/Formularios/CompanyRegistrationForm";
 
@@ -18,6 +19,11 @@ function App() {
         <CompanyRegistrationForm />
       </div>
       <Button text={"Hola"} bgColor="bg-purpleDark" />
+      <Input
+       placeholder="Escribe algo aquí..." 
+     
+       />
+      
     </div>
   );
 }
