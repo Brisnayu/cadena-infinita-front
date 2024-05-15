@@ -17,7 +17,7 @@ function App() {
         <h2 className="text-3xl font-bold text-gray-800">Registro de Empresas</h2>
         <CompanyRegistrationForm />
       </div>
-      <Button />
+      <Button text={"Hola"} bgColor="bg-purpleDark" />
     </div>
   );
 }
