@@ -1,4 +1,4 @@
-import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
+import { Route, Routes, useNavigate, useLocation, Outlet } from "react-router-dom";
 import { useEffect } from "react";
 import Login from "./pages/Login";
 import Layout from "./Componentes/Layout";
@@ -49,6 +49,7 @@ function App() {
         <Route path="/juniors" element={<Juniors />} />
         <Route path="/reports" element={<Reports />} />
         <Route path="/roles" element={<Roles />} />
+        <Route path="*" element={<Outlet />} />
       </Route>
     </Routes>
   );

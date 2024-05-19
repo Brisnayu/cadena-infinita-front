@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../Context/AuthContext";
 
 const ColumnNav = () => {
@@ -20,19 +20,19 @@ const ColumnNav = () => {
 
       <ul className="flex flex-col gap-[3.5rem] font-bold text-onPrimary">
         
-          <Link to="/">Inicio</Link>
+          <NavLink to="/">Inicio</NavLink>
 
-          <Link to="/company">Empresas</Link>
+          <NavLink to="/company">Empresas</NavLink>
 
-          <Link to="/juniors">Juniors</Link>
+          <NavLink to="/juniors">Juniors</NavLink>
 
-          <Link to="/challenges">Retos</Link>
+          <NavLink to="/challenges">Retos</NavLink>
 
-          <Link to="/reports">Reportes</Link>
+          <NavLink to="/reports">Reportes</NavLink>
 
-          <Link to="/calendar">Calendario</Link>
+          <NavLink to="/calendar">Calendario</NavLink>
 
-          <Link to="/config">Configuración</Link>
+          <NavLink to="/config">Configuración</NavLink>
 
           <button
             onClick={handleLogout}
