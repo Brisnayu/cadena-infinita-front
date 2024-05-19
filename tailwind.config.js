@@ -75,6 +75,9 @@ const config = {
       surfaceContainerHigh: "#EDE6EE",
       surfaceContainerHighest: "#E7E0E8",
     },
+    backgroundImage: {
+      gradiente01: 'linear-gradient(90deg, rgba(128,89,166,1) 0%, rgba(112,194,194,1) 100%)',
+    }
   },
   plugins: [],
 };

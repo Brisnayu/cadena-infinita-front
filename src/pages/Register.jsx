@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../Context/AuthContext";
+import LayoutForms from "../Componentes/LayoutForms";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <LayoutForms>
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h2 className="text-1xl mb-6 text-center font-bold">Registro</h2>
         {error && <p className="text-red-500 mb-4">{error}</p>}
@@ -73,7 +74,7 @@ const Register = () => {
           ¿Tienes cuenta? <Link to="/login" className="text-blue-500 font-bold">Inicia sesión</Link>
         </p>
       </div>
-    </div>
+    </LayoutForms>
   );
 };
 

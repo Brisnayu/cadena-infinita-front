@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../Context/AuthContext";
+import LayoutForms from "../Componentes/LayoutForms";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -21,9 +22,11 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h2 className="text-1xl font-bold mb-6 text-center">¡Inicia sesión para tener acceso a tus datos más recientes!</h2>
+    <LayoutForms>
+      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md bg-onPrimary">
+        <h2 className="text-1xl font-bold mb-6 text-center">
+          ¡Inicia sesión para tener acceso a tus datos más recientes!
+        </h2>
         {error && <p className="text-red-500 mb-4">{error}</p>}
         <form onSubmit={handleForm} className="space-y-4">
           <div>
@@ -48,13 +51,21 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded-md">Inicia sesión</button>
+          <button
+            type="submit"
+            className="w-full bg-blue-500 text-white p-2 rounded-md"
+          >
+            Inicia sesión
+          </button>
         </form>
         <p className="mt-4 text-center">
-          ¿No tienes cuenta? <Link to="/register" className="text-blue-500 font-bold">Regístrate</Link>
+          ¿No tienes cuenta?{" "}
+          <Link to="/register" className="text-blue-500 font-bold">
+            Regístrate
+          </Link>
         </p>
       </div>
-    </div>
+    </LayoutForms>
   );
 };
 
