@@ -1,9 +1,7 @@
-import InfoPages from "../Componentes/InfoPages"
+import InfoPages from "../Componentes/InfoPages";
 
 const Challenges = () => {
-  return (
-    <InfoPages title="Retos" />
-  )
-}
+  return <InfoPages title="Retos" />;
+};
 
-export default Challenges
+export default Challenges;

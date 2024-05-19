@@ -1,10 +1,7 @@
-import InfoPages from "../Componentes/InfoPages"
-
+import InfoPages from "../Componentes/InfoPages";
 
 const Juniors = () => {
-  return (
-    <InfoPages title="Juniors" />
-  )
-}
+  return <InfoPages title="Juniors" />;
+};
 
-export default Juniors
+export default Juniors;
