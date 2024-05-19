@@ -1,9 +1,7 @@
-import InfoPages from "../Componentes/InfoPages"
+import InfoPages from "../Componentes/InfoPages";
 
 const Company = () => {
-  return (
-    <InfoPages title="Empresas" />
-  )
-}
+  return <InfoPages title="Empresas" />;
+};
 
-export default Company
+export default Company;
