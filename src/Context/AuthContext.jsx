@@ -1,6 +1,6 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useState } from 'react';
 
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -13,6 +13,7 @@ export const AuthProvider = ({ children }) => {
             // Aquí iría la lógica para registrar el usuario, por ejemplo:
             // await someRegisterService(email, password);
             console.log('Registering user:', email);
+            console.log('password:', password);
             setIsAuthenticated(true);
         } catch (error) {
             // Manejar el error de registro
@@ -29,5 +30,3 @@ export const AuthProvider = ({ children }) => {
         </AuthContext.Provider>
     );
 };
-
-export const useAuth = () => useContext(AuthContext);
