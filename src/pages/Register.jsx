@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../Context/AuthContext";
+import LayoutForms from "../Componentes/LayoutForms";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -26,10 +27,10 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h2 className="text-1xl mb-6 text-center font-bold">Registro</h2>
-        {error && <p className="text-red-500 mb-4">{error}</p>}
+    <LayoutForms>
+      <div className="p-8 rounded-lg shadow-md w-full max-w-md bg-onPrimary">
+        <h2 className="text-1xl mb-6 text-center">Registro</h2>
+        {error && <p className="mb-4">{error}</p>}
         <form onSubmit={handleRegister} className="space-y-4">
           <div>
             <input
@@ -39,7 +40,6 @@ const Register = () => {
               className="mt-1 p-2 w-full border rounded-full"
               value={email}
               required
-              autoComplete="email"
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
@@ -51,7 +51,6 @@ const Register = () => {
               className="mt-1 p-2 w-full border rounded-full"
               value={password}
               required
-              autoComplete="new-password"
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
@@ -63,17 +62,24 @@ const Register = () => {
               className="mt-1 p-2 w-full border rounded-full"
               value={confirmPassword}
               required
-              autoComplete="new-password"
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </div>
-          <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded-md">Regístrate</button>
+          <button
+            type="submit"
+            className="w-full p-2 border rounded-full bg-onPrimaryContainer text-onPrimary"
+          >
+            Regístrate
+          </button>
         </form>
         <p className="mt-4 text-center">
-          ¿Tienes cuenta? <Link to="/login" className="text-blue-500 font-bold">Inicia sesión</Link>
+          ¿Tienes cuenta?{" "}
+          <Link to="/login" className="font-bold">
+            Inicia sesión
+          </Link>
         </p>
       </div>
-    </div>
+    </LayoutForms>
   );
 };
 
