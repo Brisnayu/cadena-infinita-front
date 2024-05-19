@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../Context/AuthContext";
 
 const ColumnNav = () => {
@@ -19,34 +19,26 @@ const ColumnNav = () => {
       />
 
       <ul className="flex flex-col gap-[3.5rem] font-bold text-onPrimary">
-        <li className="active:text-onErrorContainer">
-          <NavLink to="/">Inicio</NavLink>
-        </li>
-        <li className="active:text-onErrorContainer">
-          <NavLink to="/company">Empresas</NavLink>
-        </li>
-        <li className="active:text-onErrorContainer">
-          <NavLink to="/juniors">Juniors</NavLink>
-        </li>
-        <li className="active:text-onErrorContainer">
-          <NavLink to="/challenges">Retos</NavLink>
-        </li>
-        <li className="active:text-onErrorContainer">
-          <NavLink to="/reports">Reportes</NavLink>
-        </li>
-        <li className="active:text-onErrorContainer">
-          <NavLink to="/calendar">Calendario</NavLink>
-        </li>
-        <li className="active:text-onErrorContainer">
-          <NavLink to="/config">Configuración</NavLink>
-        </li>
-        <li className="active:text-onErrorContainer">
+        
+          <Link to="/">Inicio</Link>
+
+          <Link to="/company">Empresas</Link>
+
+          <Link to="/juniors">Juniors</Link>
+
+          <Link to="/challenges">Retos</Link>
+
+          <Link to="/reports">Reportes</Link>
+
+          <Link to="/calendar">Calendario</Link>
+
+          <Link to="/config">Configuración</Link>
+
           <button
             onClick={handleLogout}
           >
             Cerrar sesión
           </button>
-        </li>
       </ul>
     </nav>
   );

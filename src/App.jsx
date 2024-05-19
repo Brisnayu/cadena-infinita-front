@@ -1,6 +1,5 @@
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import { useAuth } from "./Context/AuthContext";
 import Login from "./pages/Login";
 import Layout from "./Componentes/Layout";
 import Home from "./pages/Home";
@@ -13,36 +12,44 @@ import RecoverPassword from "./pages/RecoverPassword";
 import Roles from "./pages/Roles";
 import Reports from "./pages/Reports";
 import Register from "./pages/Register";
+import { useAuth } from "./Context/AuthContext";
 import "./index.css";
 import "tailwindcss/tailwind.css";
 
 function App() {
-  const { isAuthenticated } = useAuth();
+  const { pathname } = useLocation();
   const navigate = useNavigate();
+  const { isAuthenticated } = useAuth(); 
 
   useEffect(() => {
-    if (!isAuthenticated) {
+    // Si no está autenticado y la ruta no es de inicio de sesión ni de registro, redirige a la página de inicio de sesión
+    if (!isAuthenticated && !["/login", "/register"].includes(pathname)) {
       navigate("/login");
     }
-  }, [isAuthenticated, navigate]);
+  }, [pathname, navigate, isAuthenticated]);
+
+  // Si está autenticado y la ruta es de inicio de sesión o de registro, redirige a la página de inicio
+  useEffect(() => {
+    if (isAuthenticated && ["/login", "/register"].includes(pathname)) {
+      navigate("/");
+    }
+  }, [pathname, navigate, isAuthenticated]);
 
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/recoverpassword" element={<RecoverPassword />} />
-      {isAuthenticated ? (
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="/calendar" element={<Calendar />} />
-          <Route path="/challenges" element={<Challenges />} />
-          <Route path="/company" element={<Company />} />
-          <Route path="/config" element={<Config />} />
-          <Route path="/juniors" element={<Juniors />} />
-          <Route path="/reports" element={<Reports />} />
-          <Route path="/roles" element={<Roles />} />
-        </Route>
-      ) : null}
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="/calendar" element={<Calendar />} />
+        <Route path="/challenges" element={<Challenges />} />
+        <Route path="/company" element={<Company />} />
+        <Route path="/config" element={<Config />} />
+        <Route path="/juniors" element={<Juniors />} />
+        <Route path="/reports" element={<Reports />} />
+        <Route path="/roles" element={<Roles />} />
+      </Route>
     </Routes>
   );
 }

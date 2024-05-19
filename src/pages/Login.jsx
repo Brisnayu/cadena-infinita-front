@@ -23,11 +23,11 @@ const Login = () => {
 
   return (
     <LayoutForms>
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md bg-onPrimary">
-        <h2 className="text-1xl font-bold mb-6 text-center">
+      <div className="p-8 rounded-lg shadow-md w-full max-w-md bg-onPrimary">
+        <h2 className="text-1xl mb-6 text-center">
           ¡Inicia sesión para tener acceso a tus datos más recientes!
         </h2>
-        {error && <p className="text-red-500 mb-4">{error}</p>}
+        {error && <p className="mb-4">{error}</p>}
         <form onSubmit={handleForm} className="space-y-4">
           <div>
             <input
@@ -53,14 +53,14 @@ const Login = () => {
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white p-2 rounded-md"
+            className="w-full p-2 border rounded-full bg-onPrimaryContainer text-onPrimary"
           >
             Inicia sesión
           </button>
         </form>
         <p className="mt-4 text-center">
           ¿No tienes cuenta?{" "}
-          <Link to="/register" className="text-blue-500 font-bold">
+          <Link to="/register" className="font-bold">
             Regístrate
           </Link>
         </p>
