@@ -12,9 +12,11 @@ import RecoverPassword from "./pages/RecoverPassword";
 import Roles from "./pages/Roles";
 import Reports from "./pages/Reports";
 import Register from "./pages/Register";
-import { useAuth } from "./Context/AuthContext";
+import { useAuth } from "./Context/UseAuth";
 import "./index.css";
 import "tailwindcss/tailwind.css";
+import Admins from "./pages/Admins";
+import "./App.css";
 
 function App() {
   const { pathname } = useLocation();
@@ -42,6 +44,7 @@ function App() {
       <Route path="/recoverpassword" element={<RecoverPassword />} />
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
+        <Route path="/admins" element={<Admins />} />
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/challenges" element={<Challenges />} />
         <Route path="/company" element={<Company />} />
